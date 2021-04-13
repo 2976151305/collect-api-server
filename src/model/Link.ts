@@ -30,6 +30,14 @@ Link.init({
     type: DataTypes.STRING,
     comment: '链接图标'
   },
+  create_time: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
+  update_time: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
   status: {
     type: DataTypes.INTEGER,
     defaultValue: Status.ENABLE,
@@ -41,7 +49,7 @@ Link.init({
   }
 }, {
   sequelize,
-  timestamps: true,
+  timestamps: false,
   tableName: 'link'
 })
 
