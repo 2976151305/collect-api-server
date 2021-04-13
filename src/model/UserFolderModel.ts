@@ -2,11 +2,7 @@ import { DataTypes, Model } from 'sequelize'
 import sequelize from '../conn'
 import { Status } from '../comm/enum'
 
-class UserFolder extends Model {
-  constructor() {
-    super()
-  }
-}
+class UserFolder extends Model {}
 
 UserFolder.init({
   id: {

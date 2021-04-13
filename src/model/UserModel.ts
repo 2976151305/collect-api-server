@@ -45,7 +45,7 @@ User.init({
     type: DataTypes.STRING,
     comment: '微信OPENID'
   },
-  backgournd: {
+  background: {
     type: DataTypes.STRING,
     comment: '自定义背景'
   },
