@@ -4,7 +4,6 @@ import { koaSwagger } from 'koa2-swagger-ui'
 import config, { port } from './config'
 import swaggerJsdoc from 'swagger-jsdoc'
 
-const path = require('path')
 const app = new Koa()
 
 app.use(router.routes())

@@ -9,7 +9,20 @@ interface Folder {
 }
 
 class UserFolderRouter {
-  // 获取用户文件夹
+  /**
+   * @openapi
+   * /user/getUserFolder/:userId:
+   *   get:
+   *     name: 获取用户收藏文件夹
+   *     description: 获取用户收藏文件夹
+   *     parameters:
+   *       - name: userId
+   *         in: path
+   *         description: 用户ID
+   *         required: true
+   *         schema:
+   *           type: integer
+   */
   async getUserFolders(ctx: RouterContext) {
     try {
       const { userId } = ctx.params
