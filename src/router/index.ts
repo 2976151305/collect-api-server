@@ -4,9 +4,19 @@ import UserRouter from './UserRouter'
 
 const router = new Router()
 
-// 获取用户所有文件夹
+/**
+ * @openapi
+ * /:
+ *  get:
+ *    description: 获取用户收藏文件夹
+ */
 router.get('/user/getUserFolder/:userId', UserFolderRouter.getUserFolders)
-// 获取所有用户
+/**
+ * @openapi
+ * /:
+ *  get:
+ *    description: 获取用户列表
+ */
 router.get('/user/get', UserRouter.getUsers)
 
 export default router

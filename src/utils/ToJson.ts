@@ -1,9 +1,6 @@
 import { ErrorCode } from '../comm/enum'
 
 class ToJson<T> {
-
-  constructor() {}
-
   output(code: ErrorCode, data?: T, msg?: string) {
     let defaultMsg: string = ''
 

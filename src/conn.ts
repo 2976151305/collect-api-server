@@ -1,6 +1,10 @@
+import config from './config'
 import { Sequelize } from 'sequelize'
 
-export default new Sequelize('collect', 'root', 'root', {
-  host: 'localhost',
+const { DATABASE, USERNAME, PASSWORD, HOST, PORT } = config.db
+
+export default new Sequelize(DATABASE, USERNAME, PASSWORD, {
+  host: HOST,
+  port: PORT,
   dialect: 'mysql'
 })
