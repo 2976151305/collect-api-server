@@ -17,17 +17,18 @@ npm i
 ## 项目运行
 
 ```
-// 项目运行
 nodemon ./src/server.ts
 ```
 
 ## 项目访问
 ```
 // 访问项目地址
-http://localhost:9560 or http://127.0.0.1:9560
+http://localhost:9560/
+http://127.0.0.1:9560/
 
 // 访问Swagger-UI文档
-http://localhost:9560/docs or http://127.0.0.1:9560/docs
+http://localhost:9560/docs
+http://127.0.0.1:9560/docs
 ```
 
 ## 引入的依赖
