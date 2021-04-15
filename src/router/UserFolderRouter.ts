@@ -33,10 +33,11 @@ class UserFolderRouter {
   async getUserFolders(ctx: RouterContext) {
     try {
       const { userId } = ctx.params
-      let data: Folder[] = []
       const userFolders = await UserFolderModel.findAll({
         where: { user_id: userId, is_del: 0, status: 1 }
       })
+      let data: Folder[] = []
+
       for(let i = 0; i < userFolders.length; i++) {
         const folder_id = userFolders[i].getDataValue('id')
         const folderLinks = await LinkModel.findAll({
