@@ -19,5 +19,6 @@ export const enum ErrorCode {
   INVALID_TOKEN = 403, // 用户校验错误
   INTERNAL_SERVER_ERROR = 500, // 服务器内部错误
   INVALID_EMAIL = 1001, // 无效邮箱
-  INVALID_PHONE = 1002 // 无效手机号
+  INVALID_PHONE = 1002, // 无效手机号
+  NOT_FOUND = 404
 }

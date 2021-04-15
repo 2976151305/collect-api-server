@@ -3,9 +3,11 @@ import router from './router'
 import { koaSwagger } from 'koa2-swagger-ui'
 import config, { port } from './config'
 import swaggerJsdoc from 'swagger-jsdoc'
+import koabody from 'koa-body'
 
 const app = new Koa()
 
+app.use(koabody())
 app.use(router.routes())
 app.use(koaSwagger(config.swaggerDefOpts))
 

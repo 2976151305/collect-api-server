@@ -10,18 +10,25 @@ interface Folder {
 
 class UserFolderRouter {
   /**
-   * @openapi
-   * /user/getUserFolder/:userId:
-   *   get:
-   *     name: 获取用户收藏文件夹
-   *     description: 获取用户收藏文件夹
-   *     parameters:
-   *       - name: userId
-   *         in: path
-   *         description: 用户ID
-   *         required: true
-   *         schema:
-   *           type: integer
+   * @swagger
+   * /user/getUserFolders/{userId}:
+   *  get:
+   *    summary: 获取用户文件夹
+   *    description: 获取用户文件夹
+   *    produces:
+   *      - application/json
+   *    tags:
+   *      - user
+   *    parameters:
+   *      - name: userId
+   *        in: path
+   *        description: 用户ID
+   *        required: true
+   *    responses:
+   *      200:
+   *        description: 请求成功
+   *        schema:
+   *          $ref: '#/definitions/ApiResponse'
    */
   async getUserFolders(ctx: RouterContext) {
     try {
