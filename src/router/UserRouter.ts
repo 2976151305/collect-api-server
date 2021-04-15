@@ -51,29 +51,29 @@ class UserRouter {
    *          $ref: '#/definitions/ApiResponse'
    */
   async login(ctx: RouterContext) {
-    // const { account, password } = JSON.stringify(ctx.request.body)
-    // console.log(account, password, ctx.request.body)
+    const { account, password } = (JSON.stringify(ctx.request.body) as Data)
+    console.log(account, password, ctx.request.body)
 
-    // if (!account || !password)
-    //   return ctx.body = ToJson(ErrorCode.BAD_REQUEST, undefined, '账号或密码不能为空')
+    if (!account || !password)
+      return ctx.body = ToJson(ErrorCode.BAD_REQUEST, undefined, '账号或密码不能为空')
 
-    // try {
-    //   const user = await UserModel.findOne({
-    //     where: { account, password },
-    //     attributes: ['account', 'nickanme', 'phone', 'background', 'avatar', 'gender', 'email']
-    //   })
+    try {
+      const user = await UserModel.findOne({
+        where: { account, password },
+        attributes: ['account', 'nickanme', 'phone', 'background', 'avatar', 'gender', 'email']
+      })
       
-    //   if (!user)
-    //     return ctx.body = ToJson(ErrorCode.NOT_FOUND, undefined, '用户不存在或账号密码错误')
+      if (!user)
+        return ctx.body = ToJson(ErrorCode.NOT_FOUND, undefined, '用户不存在或账号密码错误')
 
-    //   const id = user.getDataValue('id')
-    //   const phone = user.getDataValue('phone')
-    //   const token = new Jwt().generateToken({ id, account, phone })
+      const id = user.getDataValue('id')
+      const phone = user.getDataValue('phone')
+      const token = new Jwt().generateToken({ id, account, phone })
       
-    //   return ctx.body = ToJson(ErrorCode.SUCCESS, { token, user: user.toJSON() })
-    // } catch (e) {
-    //   return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR)
-    // }
+      return ctx.body = ToJson(ErrorCode.SUCCESS, { token, user: user.toJSON() })
+    } catch (e) {
+      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR)
+    }
   }
 }
 
