@@ -72,6 +72,39 @@ export default {
               description: '返回信息'
             }
           }
+        },
+        User: {
+          type: 'object',
+          properties: {
+            account: {
+              type: 'string',
+              description: '账号'
+            },
+            password: {
+              type: 'string',
+              description: '密码'
+            },
+            email: {
+              type: 'string',
+              description: '邮箱'
+            },
+            gender: {
+              type: 'integer',
+              description: '性别'
+            },
+            phone: {
+              type: 'string',
+              description: '手机号'
+            },
+            avatar: {
+              type: 'string',
+              description: '用户头像'
+            },
+            nickname: {
+              type: 'string',
+              description: '用户昵称'
+            }
+          }
         }
       }
     },
