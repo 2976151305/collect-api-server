@@ -52,7 +52,7 @@ class UserFolderRouter {
       return ctx.body = ToJson(ErrorCode.SUCCESS, data)
     } catch (e) {
       console.warn(e)
-      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR)
+      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR, e)
     }
   }
 }

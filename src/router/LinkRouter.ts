@@ -43,14 +43,14 @@ class FolderRouter {
       if (link) return ctx.body = ToJson(ErrorCode.SUCCESS, link)
       else return ctx.body = ToJson(ErrorCode.NOT_FOUND, undefined, '数据不存在')
     } catch (e) {
-      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR)
+      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR, e)
     }
   }
   async addLink(ctx: RouterContext) {
     try {
       const { link, folderId } = ctx.params
     } catch (e) {
-      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR)
+      return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR, e)
     }
   }
 }
