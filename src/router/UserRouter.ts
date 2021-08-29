@@ -133,7 +133,7 @@ class UserRouter {
       avatar
     } = <User>ctx.request.body
 
-    if (!account || !password || !nickname)
+    if (!account || !password)
       return ctx.body = ToJson(ErrorCode.BAD_REQUEST, undefined, '必填信息不能为空')
 
     try {
@@ -147,10 +147,14 @@ class UserRouter {
         email,
         phone,
         gender,
-        avatar
+        avatar,
+        nickname
       })
-      newUser.setAttributes(this.attributes).toJSON()
-      return ctx.body = ToJson(ErrorCode.SUCCESS, newUser)
+      const token = new Jwt().generateToken({
+        id: newUser.getDataValue('id'),
+        account: newUser.getDataValue('account'),
+      })
+      return ctx.body = ToJson(ErrorCode.SUCCESS, { user: newUser.toJSON(), token })
     } catch (e) {
       return ctx.body = ToJson(ErrorCode.INTERNAL_SERVER_ERROR, e)
     }
@@ -166,7 +170,7 @@ class UserRouter {
    *    parameters:
    *      - name: userId
    *        in: path
-   *        type: object
+   *        type: string
    *        required: true
    *    tags:
    *      - user

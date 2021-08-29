@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 interface User {
   id: number
   account: string
-  phone: number
+  phone?: number
 }
 
 const screct = 'collect'
